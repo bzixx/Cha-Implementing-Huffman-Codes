@@ -26,7 +26,7 @@ class BinaryTree {
 	//Fields
 private:
 	int size{ 0 };
-	BTreeNode* root{ nullptr };
+	//BTreeNode* root{ nullptr };
 public:
 	//constructor
 	BinaryTree() {

@@ -2,7 +2,6 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "BinaryTree.h"
 
 vector<string> readInFile(){
     vector<string> vectorToRetun;
@@ -17,10 +16,35 @@ vector<string> readInFile(){
     //Closing file
     MyFile.close();
 
-
     return vectorToRetun;
 
 }
+
+// Function to count occurrences of each letter (ignoring case)
+vector<int> countLettersIgnoreCase(const string& str) {
+    vector<int> buckets(26, 0);
+
+    for (char ch : str) {
+        if (isalpha(ch)) {
+            buckets[tolower(ch) - 'a']++;
+        }
+    }
+
+    return buckets; // Returning the count vector
+}
+
+// vector<string> splitIntoWords(){
+//     vector<string> vectorToRetun;
+//     vector<string> linesVector = readInFile();
+    
+//     for (int i = 0; i < linesVector.size(); i++) {
+//         lines
+
+//     }
+
+//     return vectorToRetun;
+// }
+
 
 int main() {
     //Call read in file function
@@ -28,7 +52,19 @@ int main() {
     //Print out the vector
     for (int i = 0; i < vectorToPrint.size(); i++) {
         cout << vectorToPrint[i] << endl;
+        vector<int> counts = countLettersIgnoreCase(vectorToPrint[i]);
+
+            // Print the counts
+        for (int i = 0; i < 26; ++i) {
+            if (counts[i] > 0) {
+                cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
+            }
+        }
     }
+
+
+
+
 }
 
 
