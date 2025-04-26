@@ -100,6 +100,6 @@ int main() {
 
 
 string letterPair() {
-	//creating the tree of nodes for the letter pair algorithm
+	//Same as huffman but encoding certain common letter-pairs as their own "letters"
 
 }
