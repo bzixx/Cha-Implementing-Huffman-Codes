@@ -55,15 +55,14 @@ int main() {
     //Call read in file function
     string stringToPrint = readInFile();
     //Print out the vector
-    for (int i = 0; i < stringToPrint.length(); i++) {
-        cout << stringToPrint[i] << endl;
-        vector<int> counts = countLettersIgnoreCase(stringToPrint);
+    cout << stringToPrint << endl;
 
-            // Print the counts
-        for (int i = 0; i < 26; ++i) {
-            if (counts[i] > 0) {
-                cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
-            }
+    vector<int> counts = countLettersIgnoreCase(stringToPrint);
+    
+    // Print the counts
+    for (int i = 0; i < 26; ++i) {
+        if (counts[i] > 0) {
+            cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
         }
     }
 
