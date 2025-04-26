@@ -1,9 +1,7 @@
-this is a demo input for huffman encoding
-huffman encoding compresses data efficiently
-learning huffman is fun
+The quick brown fox jumped over the lazy brown dog
 
-compression algorithms save storage space
-efficient coding reduces transmission time
-data structures are key to solving problems
-practice makes perfect in programming
-huffman trees are binary trees
+The jellyfish floated over the sea wave
+
+The dock landed on the pond
+
+My mother called my name because dinner is made
