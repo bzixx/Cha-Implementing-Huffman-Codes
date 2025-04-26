@@ -10,6 +10,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <queue>
 
 //Function to read in a file and place everything in the file into a string
 string readInFile(){
@@ -42,29 +43,23 @@ vector<int> letterFrequency(const string& str) {
     return buckets; // Returning the count vector
 }
 
-
-int main() {
-    //Call read in file function
-    string stringToPrint = readInFile();
-    //Print out the vector
-    cout << stringToPrint << endl;
-
-    vector<int> counts = letterFrequency(stringToPrint);
-    
-    // Print the counts
-    for (int i = 0; i < 26; ++i) {
-        if (counts[i] > 0) {
-            cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
-        }
-    }
-}
-
-
-string huffman() {
+void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
     vector<int> OGStringFrequency = letterFrequency(OGFileString);
+
     //create a priority queue
+    priority_queue<int> max_priority_queue;
+
+    for (int n : OGStringFrequency) {
+            max_priority_queue.push(n);
+    }
+
+    cout << "Queue Produced:" ;
+    for (; !max_priority_queue.empty(); max_priority_queue.pop()){
+        cout << max_priority_queue.top() << " ";
+    }
+
 
 //loop
     //iterate through the priority queue
@@ -83,6 +78,26 @@ string huffman() {
 
     //create a code using the path from the root to the letter we're encoding
 }
+
+
+int main() {
+    // //Call read in file function
+    // string stringToPrint = readInFile();
+    // //Print out the vector
+    // cout << stringToPrint << endl;
+
+    // vector<int> counts = letterFrequency(stringToPrint);
+    
+    // // Print the counts
+    // for (int i = 0; i < 26; ++i) {
+    //     if (counts[i] > 0) {
+    //         cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
+    //     }
+    // }
+
+    huffman();
+}
+
 
 string letterPair() {
 	//creating the tree of nodes for the letter pair algorithm
