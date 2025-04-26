@@ -1,3 +1,9 @@
 this is a demo input for huffman encoding
 huffman encoding compresses data efficiently
 learning huffman is fun
+
+compression algorithms save storage space
+efficient coding reduces transmission time
+data structures are key to solving problems
+practice makes perfect in programming
+huffman trees are binary trees
