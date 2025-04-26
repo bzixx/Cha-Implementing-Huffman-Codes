@@ -15,6 +15,26 @@ using namespace std;
 #include <fstream>
 #include <queue>
 
+struct TreeNode
+{
+	char NodeChar;
+	int NodeFrequency;
+    string NodeCode;
+	TreeNode *left, *right;
+};
+
+TreeNode* newNode(char c, int f)
+{
+    TreeNode* node = new TreeNode();
+
+    node->NodeChar = c;
+    node->NodeFrequency = f;
+    node->NodeCode = "";
+    node->left = node->right = NULL;
+
+    return node;
+}
+
 //Function to read in a file and place everything in the file into a string
 string readInFile(){
     //vector<string> vectorToRetun;
@@ -34,7 +54,7 @@ string readInFile(){
 }
 
 // Function to count occurrences of each letter (ignoring case)
-vector<int> letterFrequency(const string& str) {
+vector<pair<char,int>> letterFrequency(const string& str) {
     vector<int> buckets(26, 0);
 
     for (char ch : str) {
@@ -43,24 +63,34 @@ vector<int> letterFrequency(const string& str) {
         }
     }
 
-    return buckets; // Returning the count vector
+    vector<pair<char,int>> mapmap;
+    int i = 0;
+
+    for (int count : buckets) {
+        mapmap.push_back(make_pair('a' + i, count));
+        i++;
+    }
+
+    return mapmap; // Returning the count vector
 }
 
 void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
-    vector<int> OGStringFrequency = letterFrequency(OGFileString);
+    vector<pair<char, int>> OGStringFrequency = letterFrequency(OGFileString);
 
     //create a priority queue
-    priority_queue<int> max_priority_queue;
+    priority_queue<TreeNode*> max_priority_queue;
 
-    for (int n : OGStringFrequency) {
-            max_priority_queue.push(n);
+
+
+    for (pair<char, int> n : OGStringFrequency) {
+        max_priority_queue.push(newNode(n.first, n.second));
     }
 
     cout << "Queue Produced:" ;
     for (; !max_priority_queue.empty(); max_priority_queue.pop()){
-        cout << max_priority_queue.top() << " ";
+        cout << max_priority_queue.top()->NodeChar << " " << max_priority_queue.top()->NodeFrequency << endl;
     }
 
 
