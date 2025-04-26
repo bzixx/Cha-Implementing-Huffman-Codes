@@ -3,21 +3,26 @@ using namespace std;
 #include <vector>
 #include <fstream>
 
-vector<string> readInFile(){
+string readInFile(){
     vector<string> vectorToRetun;
+    string file_contents;
     fstream MyFile("FileToReadIn.txt");
 
     string readFromFile;
     for (int i = 0; i < 3; i++) {
         getline(MyFile, readFromFile);
         vectorToRetun.push_back(readFromFile);
+
+        while (getline(MyFile, readFromFile)) {
+            file_contents += readFromFile;
+            file_contents.push_back('\n');
+        }
     }
 
     //Closing file
     MyFile.close();
 
-    return vectorToRetun;
-
+    return file_contents;
 }
 
 // Function to count occurrences of each letter (ignoring case)
@@ -48,11 +53,11 @@ vector<int> countLettersIgnoreCase(const string& str) {
 
 int main() {
     //Call read in file function
-    vector<string> vectorToPrint = readInFile();
+    string stringToPrint = readInFile();
     //Print out the vector
-    for (int i = 0; i < vectorToPrint.size(); i++) {
-        cout << vectorToPrint[i] << endl;
-        vector<int> counts = countLettersIgnoreCase(vectorToPrint[i]);
+    for (int i = 0; i < stringToPrint.length(); i++) {
+        cout << stringToPrint[i] << endl;
+        vector<int> counts = countLettersIgnoreCase(stringToPrint);
 
             // Print the counts
         for (int i = 0; i < 26; ++i) {
