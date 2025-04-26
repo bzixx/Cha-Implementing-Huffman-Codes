@@ -4,19 +4,14 @@ using namespace std;
 #include <fstream>
 
 string readInFile(){
-    vector<string> vectorToRetun;
+    //vector<string> vectorToRetun;
     string file_contents;
     fstream MyFile("FileToReadIn.txt");
 
     string readFromFile;
-    for (int i = 0; i < 3; i++) {
-        getline(MyFile, readFromFile);
-        vectorToRetun.push_back(readFromFile);
-
-        while (getline(MyFile, readFromFile)) {
-            file_contents += readFromFile;
-            file_contents.push_back('\n');
-        }
+    while (getline(MyFile, readFromFile)) {
+        file_contents += readFromFile;
+        file_contents.push_back('\n');
     }
 
     //Closing file
