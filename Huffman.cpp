@@ -1,8 +1,13 @@
+// Created by AuGust Ringelstetter & Jack Decker on April 26, 2025 around 11AM.
+// This is a Pair challenege assignment for CS 354 at the University of Wisconsin - Stout.
+
+//Standard Imports and Libraries
 using namespace std;
 #include <iostream>
 #include <vector>
 #include <fstream>
 
+//Function to read in a file and place everything in the file into a string
 string readInFile(){
     //vector<string> vectorToRetun;
     string file_contents;
@@ -33,18 +38,6 @@ vector<int> countLettersIgnoreCase(const string& str) {
     return buckets; // Returning the count vector
 }
 
-// vector<string> splitIntoWords(){
-//     vector<string> vectorToRetun;
-//     vector<string> linesVector = readInFile();
-    
-//     for (int i = 0; i < linesVector.size(); i++) {
-//         lines
-
-//     }
-
-//     return vectorToRetun;
-// }
-
 
 int main() {
     //Call read in file function
@@ -61,11 +54,7 @@ int main() {
         }
     }
 
-
-
-
 }
-
 
 
 int frequency() {
