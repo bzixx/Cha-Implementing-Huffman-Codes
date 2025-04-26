@@ -1,6 +1,10 @@
 // Created by AuGust Ringelstetter & Jack Decker on April 26, 2025 around 11AM.
 // This is a Pair challenege assignment for CS 354 at the University of Wisconsin - Stout.
 
+
+//QUESTIONS FOR ALEXI
+//What does the decoding key mean?
+
 //Standard Imports and Libraries
 using namespace std;
 #include <iostream>
@@ -57,6 +61,9 @@ int main() {
 
 
 string huffman() {
+	//creating the tree of nodes for the original huffman algorithm
+    string OGFileString = readInFile();
+    vector<int> OGStringFrequency = letterFrequency(OGFileString);
     //create a priority queue
 
 //loop
