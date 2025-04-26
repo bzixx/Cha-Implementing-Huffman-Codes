@@ -2,6 +2,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include "BinaryTree.h"
 
 vector<string> readInFile(){
     vector<string> vectorToRetun;
