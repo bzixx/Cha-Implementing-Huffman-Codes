@@ -5,7 +5,17 @@ using namespace std;
 
 int main() {
 	//Create and open the input file
-	ofstream MyFile("huffmanInput.txt");
+	fstream MyFile("FileToReadIn.txt");
+
+	//testing to see if we can read the file
+	string readFromFile;
+	getline(MyFile, readFromFile);
+
+	//Closing file
+	MyFile.close();
+
+	cout << readFromFile;
+	
 	//call the huffman function
 
 	//call the letterPair function
@@ -17,8 +27,6 @@ vector<string> readInFile(){
     return vectorToRetun;
 
 }
-
-
 
 int frequency() {
 	//finding the frequency of each letter
