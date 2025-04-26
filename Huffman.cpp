@@ -53,13 +53,8 @@ int main() {
             cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
         }
     }
-
 }
 
-
-int frequency() {
-	//finding the frequency of each letter
-}
 
 string huffman() {
 	//creating the tree of nodes for the original huffman algorithm
