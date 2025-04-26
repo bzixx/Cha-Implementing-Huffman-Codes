@@ -28,8 +28,6 @@ int main() {
     for (int i = 0; i < vectorToPrint.size(); i++) {
         cout << vectorToPrint[i] << endl;
     }
-
-
 }
 
 
