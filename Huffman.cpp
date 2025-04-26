@@ -23,7 +23,7 @@ struct TreeNode
 	TreeNode *left, *right;
 };
 
-TreeNode* newNode(char c, int f)
+TreeNode* newNode(int f, char c)
 {
     TreeNode* node = new TreeNode();
 
@@ -54,7 +54,7 @@ string readInFile(){
 }
 
 // Function to count occurrences of each letter (ignoring case)
-vector<pair<char,int>> letterFrequency(const string& str) {
+vector<pair<int, char>> letterFrequency(const string& str) {
     vector<int> buckets(26, 0);
 
     for (char ch : str) {
@@ -63,11 +63,11 @@ vector<pair<char,int>> letterFrequency(const string& str) {
         }
     }
 
-    vector<pair<char,int>> mapmap;
+    vector<pair<int, char>> mapmap;
     int i = 0;
 
     for (int count : buckets) {
-        mapmap.push_back(make_pair('a' + i, count));
+        mapmap.push_back(make_pair(count, 'a' + i));
         i++;
     }
 
@@ -77,20 +77,20 @@ vector<pair<char,int>> letterFrequency(const string& str) {
 void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
-    vector<pair<char, int>> OGStringFrequency = letterFrequency(OGFileString);
+    vector<pair<int, char>> OGStringFrequency = letterFrequency(OGFileString);
 
     //create a priority queue
     priority_queue<TreeNode*> max_priority_queue;
 
 
 
-    for (pair<char, int> n : OGStringFrequency) {
+    for (pair<int, char> n : OGStringFrequency) {
         max_priority_queue.push(newNode(n.first, n.second));
     }
 
     cout << "Queue Produced:" ;
     for (; !max_priority_queue.empty(); max_priority_queue.pop()){
-        cout << max_priority_queue.top()->NodeChar << " " << max_priority_queue.top()->NodeFrequency << endl;
+        cout << max_priority_queue.top()->NodeFrequency << " " << max_priority_queue.top()->NodeChar << endl;
     }
 
 
