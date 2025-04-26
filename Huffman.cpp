@@ -5,6 +5,9 @@
 //QUESTIONS FOR ALEXI
 //What does the decoding key mean?
 
+//PREDICTIONS
+//Worst case scenario letter-pair is the same as huffman codes, best case scenario, its better.
+
 //Standard Imports and Libraries
 using namespace std;
 #include <iostream>
