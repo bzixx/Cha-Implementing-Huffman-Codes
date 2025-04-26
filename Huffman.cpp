@@ -57,8 +57,24 @@ int main() {
 
 
 string huffman() {
-	//creating the tree of nodes for the original huffman algorithm
+    //create a priority queue
 
+//loop
+    //iterate through the priority queue
+
+    //make a node for each letter
+
+    //take the two lowest frequency nodes and add them
+    //then make that added value a new parent node
+
+    //insert that parent node into the priority queue
+
+    //eventually we will have only one item in the p. queue
+//exit loop
+
+    //weight each right edge with 1, and each left edge with 0
+
+    //create a code using the path from the root to the letter we're encoding
 }
 
 string letterPair() {
