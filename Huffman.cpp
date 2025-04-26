@@ -1,5 +1,6 @@
 using namespace std;
 #include <iostream>
+#include <vector>
 #include <fstream>
 
 int main() {
@@ -9,6 +10,15 @@ int main() {
 
 	//call the letterPair function
 }
+
+vector<string> readInFile(){
+    vector<string> vectorToRetun;
+
+    return vectorToRetun;
+
+}
+
+
 
 int frequency() {
 	//finding the frequency of each letter
