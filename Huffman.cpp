@@ -26,7 +26,7 @@ string readInFile(){
 }
 
 // Function to count occurrences of each letter (ignoring case)
-vector<int> countLettersIgnoreCase(const string& str) {
+vector<int> letterFrequency(const string& str) {
     vector<int> buckets(26, 0);
 
     for (char ch : str) {
@@ -45,7 +45,7 @@ int main() {
     //Print out the vector
     cout << stringToPrint << endl;
 
-    vector<int> counts = countLettersIgnoreCase(stringToPrint);
+    vector<int> counts = letterFrequency(stringToPrint);
     
     // Print the counts
     for (int i = 0; i < 26; ++i) {
