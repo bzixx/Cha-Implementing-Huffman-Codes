@@ -3,30 +3,36 @@ using namespace std;
 #include <vector>
 #include <fstream>
 
-int main() {
-	//Create and open the input file
-	fstream MyFile("FileToReadIn.txt");
-
-	//testing to see if we can read the file
-	string readFromFile;
-	getline(MyFile, readFromFile);
-
-	//Closing file
-	MyFile.close();
-
-	cout << readFromFile;
-	
-	//call the huffman function
-
-	//call the letterPair function
-}
-
 vector<string> readInFile(){
     vector<string> vectorToRetun;
+    fstream MyFile("FileToReadIn.txt");
+
+    string readFromFile;
+    for (int i = 0; i < 3; i++) {
+        getline(MyFile, readFromFile);
+        vectorToRetun.push_back(readFromFile);
+    }
+
+    //Closing file
+    MyFile.close();
+
 
     return vectorToRetun;
 
 }
+
+int main() {
+    //Call read in file function
+    vector<string> vectorToPrint = readInFile();
+    //Print out the vector
+    for (int i = 0; i < vectorToPrint.size(); i++) {
+        cout << vectorToPrint[i] << endl;
+    }
+
+
+}
+
+
 
 int frequency() {
 	//finding the frequency of each letter
