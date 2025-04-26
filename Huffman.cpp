@@ -1,8 +1,10 @@
 using namespace std;
 #include <iostream>
+#include <fstream>
 
 int main() {
-	string input = "";
+	//Create and open the input file
+	ofstream MyFile("huffmanInput.txt");
 	//call the huffman function
 
 	//call the letterPair function
