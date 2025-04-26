@@ -1,0 +1,3 @@
+this is a demo input for huffman encoding
+huffman encoding compresses data efficiently
+learning huffman is fun
