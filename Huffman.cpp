@@ -23,6 +23,14 @@ struct TreeNode
 	TreeNode *left, *right;
 };
 
+struct TreeNodeCompare
+{
+    bool operator()(TreeNode* l, TreeNode* r)
+    {
+        return l->NodeFrequency > r->NodeFrequency;
+    }
+};
+
 TreeNode* newNode(int f, char c)
 {
     TreeNode* node = new TreeNode();
@@ -80,7 +88,7 @@ void huffman() {
     vector<pair<int, char>> OGStringFrequency = letterFrequency(OGFileString);
 
     //create a priority queue
-    priority_queue<TreeNode*> max_priority_queue;
+    priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare> max_priority_queue;
 
 
 
