@@ -102,6 +102,21 @@ void huffman() {
     }
 
 
+    //MEETING WITH ALEXI NOTES
+
+    //Need to generate a List to storew all the encodings. 
+    //Need to find a way to do tree traversal to get the encodings
+    //Tree traversal can look at the left and right children of the node and keep a current variable that can be appended to and then once the actuial node 
+    //is found, then have to store the encoding in the list. 
+    //Dont worry about the Two Character version at this point. 
+    //Finally print the encoding and then print the ecoded version and the key to the encoding.
+    //Rewrite the orginal file in encoded format, and also print out the key to the encoding.
+    //Key and the encoded file in the same file. 
+    
+    //MEETING WITH ALEXI NOTES
+
+
+
 //loop
     //iterate through the priority queue
 
