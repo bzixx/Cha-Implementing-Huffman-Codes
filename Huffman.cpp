@@ -119,7 +119,9 @@ void findEncoding(TreeNode& treeToUse, vector<pair<char, string>>& EncodedList) 
        return;
     }
 
-    currFoundEncoding += currentNode->NodeCode;
+    cout << "Current Node: " << currentNode->NodeChar << " Frequency: " << currentNode->NodeFrequency << " Encoding: " << currentNode->NodeCode << endl;
+
+    //currFoundEncoding += currentNode->NodeCode;
 
     findEncoding(*currentNode->left, EncodedList);
 
@@ -163,12 +165,6 @@ void huffman() {
 
     while (max_priority_queue.size() > 1) {
         buildTree(max_priority_queue);
-    }
-
-
-    cout << "Queue Produced:" ;
-    for (; !max_priority_queue.empty(); max_priority_queue.pop()){
-        cout << max_priority_queue.top()->NodeFrequency << " " << max_priority_queue.top()->NodeChar << endl;
     }
 
     findEncoding(*max_priority_queue.top(), EncodingList);
