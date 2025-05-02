@@ -118,8 +118,10 @@ int findEncoding(){
 
 void buildTree(priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare>& pqueue) {
     TreeNode* node1 = pqueue.top();
+    pqueue.pop();
 
     TreeNode* node2 = pqueue.top();
+    pqueue.pop();
 
     int totalVal = node1->NodeFrequency + node2->NodeFrequency;
 
@@ -147,10 +149,16 @@ void huffman() {
         max_priority_queue.push(newNode(n.first, n.second));
     }
 
+    for (int i = 0; i < 5; i++){
+        buildTree(max_priority_queue);
+    }
+
+
     cout << "Queue Produced:" ;
     for (; !max_priority_queue.empty(); max_priority_queue.pop()){
         cout << max_priority_queue.top()->NodeFrequency << " " << max_priority_queue.top()->NodeChar << endl;
     }
+
 
 
     doOutput(EncodingList);
