@@ -90,7 +90,7 @@ vector<pair<int, char>> letterFrequency(const string& str) {
 }
 
 
-void doOutput(vector<pair<char, int>> EncodedList) {
+void doOutput(vector<pair<char, string>> EncodedList) {
     ofstream outputFile;
     outputFile.open("EncodedOutput.txt");
 
@@ -98,7 +98,7 @@ void doOutput(vector<pair<char, int>> EncodedList) {
         outputFile << "Encoded Output" << endl;
         outputFile << "----------------" << endl;
 
-        for(pair<char, int> curr : EncodedList) {
+        for(pair<char, string> curr : EncodedList) {
             outputFile << curr.first << ": " << curr.second << endl;
         }
         // Write the encoded data here
@@ -110,10 +110,22 @@ void doOutput(vector<pair<char, int>> EncodedList) {
     outputFile.close();
 }
 
-int findEncoding(){
-    //find the encoding for the letter
-    //if the letter is in the left child, add a 0 to the encoding
-    //if the letter is in the right child, add a 1 to the encoding
+void findEncoding(TreeNode& treeToUse, vector<pair<char, string>>& EncodedList) {
+    TreeNode* root = &treeToUse;
+    TreeNode* currentNode = root;
+    string currFoundEncoding = "";
+
+    if (currentNode == NULL ){
+       return;
+    }
+
+    currFoundEncoding += currentNode->NodeCode;
+
+    findEncoding(*currentNode->left, EncodedList);
+
+    findEncoding(*currentNode->right, EncodedList);
+
+
 }
 
 void buildTree(priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare>& pqueue) {
@@ -136,9 +148,9 @@ void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
     vector<pair<int, char>> OGStringFrequency = letterFrequency(OGFileString);
-    vector<pair<char, int>> EncodingList;
+    vector<pair<char, string>> EncodingList;
 
-    EncodingList.push_back(make_pair('a', 0));
+    EncodingList.push_back(make_pair('a', "0"));
 
     //create a priority queue
     priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare> max_priority_queue;
@@ -159,7 +171,7 @@ void huffman() {
         cout << max_priority_queue.top()->NodeFrequency << " " << max_priority_queue.top()->NodeChar << endl;
     }
 
-
+    findEncoding(*max_priority_queue.top(), EncodingList);
 
     doOutput(EncodingList);
 
