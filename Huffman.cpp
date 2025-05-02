@@ -91,7 +91,7 @@ vector<pair<int, char>> letterFrequency(const string& str) {
 }
 
 
-void doOutput(vector<pair<char, string>> EncodedList) {
+void doOutput(map<char, string> EncodedList) {
     ofstream outputFile;
     outputFile.open("EncodedOutput.txt");
 
