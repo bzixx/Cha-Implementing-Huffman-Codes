@@ -116,6 +116,15 @@ int findEncoding(){
     //if the letter is in the right child, add a 1 to the encoding
 }
 
+void buildTree(priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare>& pqueue) {
+    TreeNode* node1 = pqueue.top();
+
+    TreeNode* node2 = pqueue.top();
+
+    
+}
+
+
 void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
