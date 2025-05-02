@@ -120,7 +120,7 @@ void findEncoding(TreeNode& treeToUse, map<char, string>& EncodedList) {
        return;
     }
 
-    cout << "Current Node: " << currentNode->NodeChar << " Frequency: " << currentNode->NodeFrequency << " Encoding: " << currentNode->NodeCode << endl;
+    EncodedList[currentNode->NodeChar] += currentNode->NodeCode;
 
     //currFoundEncoding += currentNode->NodeCode;
 
