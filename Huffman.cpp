@@ -8,6 +8,7 @@ using namespace std;
 #include <vector>
 #include <fstream>
 #include <queue>
+#include <map>
 
 struct TreeNode
 {
@@ -110,7 +111,7 @@ void doOutput(vector<pair<char, string>> EncodedList) {
     outputFile.close();
 }
 
-void findEncoding(TreeNode& treeToUse, vector<pair<char, string>>& EncodedList) {
+void findEncoding(TreeNode& treeToUse, map<char, string>& EncodedList) {
     TreeNode* root = &treeToUse;
     TreeNode* currentNode = root;
     string currFoundEncoding = "";
@@ -150,13 +151,14 @@ void huffman() {
 	//creating the tree of nodes for the original huffman algorithm
     string OGFileString = readInFile();
     vector<pair<int, char>> OGStringFrequency = letterFrequency(OGFileString);
-    vector<pair<char, string>> EncodingList;
+    map<char, string> EncodingList;
 
-    EncodingList.push_back(make_pair('a', "0"));
+    for(int i = 0 ; i < 26 ;i++){
+        EncodingList.insert({'a'+i, ""});
+    }
 
     //create a priority queue
     priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare> max_priority_queue;
-
 
 
     for (pair<int, char> n : OGStringFrequency) {
