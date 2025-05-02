@@ -149,7 +149,7 @@ void huffman() {
         max_priority_queue.push(newNode(n.first, n.second));
     }
 
-    for (int i = 0; i < 5; i++){
+    while (max_priority_queue.size() > 1) {
         buildTree(max_priority_queue);
     }
 
