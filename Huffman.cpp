@@ -121,7 +121,12 @@ void buildTree(priority_queue<TreeNode*, vector<TreeNode*>, TreeNodeCompare>& pq
 
     TreeNode* node2 = pqueue.top();
 
-    
+    int totalVal = node1->NodeFrequency + node2->NodeFrequency;
+
+    pqueue.push(newCombineNode(totalVal, node1, node2));
+
+    node1->NodeCode = "1";
+    node2->NodeCode = "0";
 }
 
 
