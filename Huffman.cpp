@@ -37,6 +37,19 @@ TreeNode* newNode(int f, char c)
     return node;
 }
 
+TreeNode* newCombineNode(int f, TreeNode* left, TreeNode* right)
+{
+    TreeNode* node = new TreeNode();
+
+    node->NodeChar = NULL;
+    node->NodeFrequency = f;
+    node->NodeCode = "";
+    node->left = left;
+    node->right = right;
+
+    return node;
+}
+
 //Function to read in a file and place everything in the file into a string
 string readInFile(){
     //vector<string> vectorToRetun;
