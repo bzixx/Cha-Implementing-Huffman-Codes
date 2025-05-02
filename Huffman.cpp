@@ -2,12 +2,6 @@
 // This is a Pair challenege assignment for CS 354 at the University of Wisconsin - Stout.
 
 
-//QUESTIONS FOR ALEXI
-//What does the decoding key mean?
-
-//PREDICTIONS
-//Worst case scenario letter-pair is the same as huffman codes, best case scenario, its better.
-
 //Standard Imports and Libraries
 using namespace std;
 #include <iostream>
@@ -146,47 +140,8 @@ void huffman() {
     //Key and the encoded file in the same file. 
     
     //MEETING WITH ALEXI NOTES
-
-
-
-//loop
-    //iterate through the priority queue
-
-    //make a node for each letter
-
-    //take the two lowest frequency nodes and add them
-    //then make that added value a new parent node
-
-    //insert that parent node into the priority queue
-
-    //eventually we will have only one item in the p. queue
-//exit loop
-
-    //weight each right edge with 1, and each left edge with 0
-
-    //create a code using the path from the root to the letter we're encoding
 }
 
 int main() {
-    // //Call read in file function
-    // string stringToPrint = readInFile();
-    // //Print out the vector
-    // cout << stringToPrint << endl;
-
-    // vector<int> counts = letterFrequency(stringToPrint);
-    
-    // // Print the counts
-    // for (int i = 0; i < 26; ++i) {
-    //     if (counts[i] > 0) {
-    //         cout << static_cast<char>('a' + i) << ": " << counts[i] << endl;
-    //     }
-    // }
-
     huffman();
-}
-
-
-string letterPair() {
-	//Same as huffman but encoding certain common letter-pairs as their own "letters"
-
 }
