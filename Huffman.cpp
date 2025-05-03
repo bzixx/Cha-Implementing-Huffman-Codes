@@ -99,7 +99,7 @@ void doOutput(map<char, string> EncodedList) {
         outputFile << "Encoded Output" << endl;
         outputFile << "----------------" << endl;
 
-        for(pair<char, string> curr : EncodedList) {
+        for(const auto& curr : EncodedList) {
             outputFile << curr.first << ": " << curr.second << endl;
         }
         // Write the encoded data here
@@ -111,23 +111,20 @@ void doOutput(map<char, string> EncodedList) {
     outputFile.close();
 }
 
-void findEncoding(TreeNode& treeToUse, map<char, string>& EncodedList) {
+void findEncoding(TreeNode& treeToUse, map<char, string>& EncodedList, string currentEncoding){
     TreeNode* root = &treeToUse;
     TreeNode* currentNode = root;
-    string currFoundEncoding = "";
 
     if (currentNode == NULL ){
        return;
     }
 
-    EncodedList[currentNode->NodeChar] += currentNode->NodeCode;
+    if(currentNode->NodeChar != NULL){
+        EncodedList[currentNode->NodeChar] = currentEncoding;
+    }
 
-    //currFoundEncoding += currentNode->NodeCode;
-
-    findEncoding(*currentNode->left, EncodedList);
-
-    findEncoding(*currentNode->right, EncodedList);
-
+    findEncoding(*currentNode->left, EncodedList, currentEncoding + "1");
+    findEncoding(*currentNode->right, EncodedList, currentEncoding + "0");
 
 }
 
@@ -169,7 +166,7 @@ void huffman() {
         buildTree(max_priority_queue);
     }
 
-    findEncoding(*max_priority_queue.top(), EncodingList);
+    findEncoding(*max_priority_queue.top(), EncodingList, "");
 
     doOutput(EncodingList);
 
