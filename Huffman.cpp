@@ -104,7 +104,7 @@ void doOutput(map<char, string> EncodedList, string inputMessage) {
             //outputs each letter and its encoding
             outputFile << curr.first << ": " << curr.second << endl;
         }
-
+        
         outputFile << "----------------" << endl;
         outputFile << "Full Encoded message:";
         for(char ch : inputMessage) {
@@ -112,6 +112,18 @@ void doOutput(map<char, string> EncodedList, string inputMessage) {
                 outputFile << EncodedList[ch];
             }
         }
+
+        /*
+        //FOR SHOWCASE PURPOSES
+        outputFile << "----------------" << endl;
+        outputFile << "Orignal message for showcasing functionality: " << inputMessage << endl;
+        outputFile << "Encdoded message with spaces to verify: ";
+        for(char ch : inputMessage) {
+            if (isalpha(ch)) {
+                outputFile << ch << ":" << EncodedList[ch] << " ";
+            }
+        }
+        */
 
     } else {
         cout << "Unable to open file";
