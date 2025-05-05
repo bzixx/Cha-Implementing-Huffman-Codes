@@ -10,6 +10,7 @@ using namespace std;
 #include <queue>
 #include <map>
 
+//Node Structure to build the Encoding Tree with.
 struct TreeNode
 {
 	char NodeChar;
@@ -18,6 +19,7 @@ struct TreeNode
 	TreeNode *left, *right;
 };
 
+//Comparision structure for the priority queue
 struct TreeNodeCompare
 {
     bool operator()(TreeNode* l, TreeNode* r)
@@ -26,6 +28,7 @@ struct TreeNodeCompare
     }
 };
 
+//Inital Constructor for the TreeNode objects
 TreeNode* newNode(int f, char c)
 {
     TreeNode* node = new TreeNode();
@@ -38,6 +41,7 @@ TreeNode* newNode(int f, char c)
     return node;
 }
 
+//Constructor for the combine node that will be used to combine two nodes into one
 TreeNode* newCombineNode(int f, TreeNode* left, TreeNode* right)
 {
     TreeNode* node = new TreeNode();
@@ -91,6 +95,7 @@ vector<pair<int, char>> letterFrequency(const string& str) {
 }
 
 
+//Output function to output encoding keys and the encoded message to a file.
 void doOutput(map<char, string> EncodedList, string inputMessage) {
     ofstream outputFile;
     outputFile.open("EncodedOutput.txt");
@@ -132,6 +137,7 @@ void doOutput(map<char, string> EncodedList, string inputMessage) {
     outputFile.close();
 }
 
+//Function to find the encoding for each letter in the tree recursively and store it in a special list. 
 void findEncoding(TreeNode* currentNode, string path, map<char, string>& EncodedList) {
     if (currentNode == NULL) {
         return;
@@ -186,17 +192,6 @@ void huffman() {
     findEncoding(root, "", EncodingList);
 
     doOutput(EncodingList, OGFileString);
-
-    //MEETING WITH ALEXI NOTES
-
-    //Need to find a way to do tree traversal to get the encodings
-    //Tree traversal can look at the left and right children of the node and keep a current variable that can be appended to and then once the actuial node 
-    //is found, then have to store the encoding in the list. 
-    //Finally print the encoding and then print the ecoded version and the key to the encoding.
-    //Rewrite the orginal file in encoded format, and also print out the key to the encoding.
-    //Key and the encoded file in the same file. 
-    
-    //MEETING WITH ALEXI NOTES
 }
 
 int main() {
